@@ -10,6 +10,9 @@ namespace Homework_Help_Board.Controllers
 {
 	public class HomeFeedController : Controller
 	{
-
+        public IActionResult HomeFeed()
+        {
+            return View();
+        }
 	}
 }

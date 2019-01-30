@@ -10,6 +10,9 @@ namespace Homework_Help_Board.Controllers
 {
 	public class PostQuestionController : Controller
 	{
-
+        public IActionResult PostQuestion()
+        {
+            return View();
+        }
 	}
 }
