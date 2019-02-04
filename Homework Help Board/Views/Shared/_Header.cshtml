@@ -1,9 +1,16 @@
 ﻿<!DOCTYPE html>
+
+<style>
+    #signIn {
+        margin-top: 1%;
+    }
+</style>
+
 <html>
 <body>
     <nav class="container">
-        <div class="navbar-header pull-right">
-            <a>Sign In</a>
+        <div id="signIn" class="navbar-header pull-right">
+            <a asp-controller="Login" asp-action="Login">Sign In</a>
         </div>
     </nav>
     <nav class="container">

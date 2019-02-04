@@ -5,24 +5,76 @@
     
 }
 
+<style>
+    form {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    select {
+        font-size: 15px;
+        font-weight: normal;
+    }
+
+    #postQuestionHeader {
+        color: maroon;
+        font-weight: bold;
+        margin-top: 5%;
+        margin-bottom: 3%;
+        margin-left: 5%;
+    }
+
+    #title {
+        font-size: 15px;
+        font-weight: normal;
+        margin-bottom: 2%;
+    }
+
+    #subject {
+        margin-bottom: 2%;
+    }
+
+    #grade {
+        margin-bottom: 2%;
+    }
+
+    #questionBody {
+        font-size: 15px;
+        font-weight: normal;
+        width: 600px;
+        height: 200px;
+        margin-bottom: 2%;
+    }
+
+    #postButton {
+        margin-bottom: 2%;
+    }
+</style>
+
 <html>
 <head>
     <title>Post Question Page</title>
 </head>
 <body>
     <div class="container">
-        <h3>Post a Question</h3>
+        <h2 id="postQuestionHeader">Post a Question</h2>
         <form>
-            Title: <input type="text" name="title" /><br />
-            Subject: <select>
-                        
+            Title: <input id="title" type="text" name="title" /><br />
+            Subject: 
+            <select id="subject"> <!--Change options to be pulled from global list-->
+                <option value="to">To</option>
+                <option value="be">Be</option>
+                <option value="changed">Changed</option>
             </select><br />
-            Grade: <select>
-                        
+            Grade: 
+            <select id="grade"> <!--Change options to be pulled from global list-->
+                <option value="to">To</option>
+                <option value="be">Be</option>
+                <option value="changed">Changed</option>
             </select><br />
-            Questions: <br />
-            <input type="text" name="question" /><br />
-            <input type="submit" value="Post" />
+            Question: <br />
+            <textarea id="questionBody" name="question" wrap="hard" maxlength="5000"></textarea><br />
+            <input id="postButton" type="submit" value="Post" />
         </form>
     </div>
 </body>
