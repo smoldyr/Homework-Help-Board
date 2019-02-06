@@ -10,6 +10,9 @@ namespace Homework_Help_Board.Controllers
 {
 	public class LoginController : Controller
 	{
-        
+        public IActionResult Login()
+        {
+            return View();
+        }
 	}
 }

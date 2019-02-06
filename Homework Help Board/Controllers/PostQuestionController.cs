@@ -10,6 +10,22 @@ namespace Homework_Help_Board.Controllers
 {
 	public class PostQuestionController : Controller
 	{
+        //private IRepository repository;
 
+        public IActionResult PostQuestion()
+        {
+            return View();
+        }
+
+        //public ViewResult Index() => View(repository.Questions);
+
+        //public ViewResult Create() => View();
+
+        /*[HttpPost]
+        public IActionResult Create(Question question)
+        {
+            repository.AddQuestion(question);
+            return RedirectToAction("Index");
+        }*/
 	}
 }

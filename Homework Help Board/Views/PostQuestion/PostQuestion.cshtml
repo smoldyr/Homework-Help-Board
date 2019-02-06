@@ -1,7 +1,82 @@
-@{ 
-    ViewData["Title"] = "Post Question";
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    
 }
 
-<div>
+<style>
+    form {
+        font-size: 18px;
+        font-weight: bold;
+    }
 
-</div>
+    select {
+        font-size: 15px;
+        font-weight: normal;
+    }
+
+    #postQuestionHeader {
+        color: maroon;
+        font-weight: bold;
+        margin-top: 5%;
+        margin-bottom: 3%;
+        margin-left: 5%;
+    }
+
+    #title {
+        font-size: 15px;
+        font-weight: normal;
+        margin-bottom: 2%;
+    }
+
+    #subject {
+        margin-bottom: 2%;
+    }
+
+    #grade {
+        margin-bottom: 2%;
+    }
+
+    #questionBody {
+        font-size: 15px;
+        font-weight: normal;
+        width: 600px;
+        height: 200px;
+        margin-bottom: 2%;
+    }
+
+    #postButton {
+        margin-bottom: 2%;
+    }
+</style>
+
+<html>
+<head>
+    <title>Post Question Page</title>
+</head>
+<body>
+    <div class="container">
+        <h2 id="postQuestionHeader">Post a Question</h2>
+        <form method="post">
+            <label for="title">Title:</label>
+            <input id="title" type="text" name="title" /><br />
+            Subject: 
+            <select id="subject"> <!--Change options to be pulled from global list-->
+                <option value="to">To</option>
+                <option value="be">Be</option>
+                <option value="changed">Changed</option>
+            </select><br />
+            Grade: 
+            <select id="grade"> <!--Change options to be pulled from global list-->
+                <option value="to">To</option>
+                <option value="be">Be</option>
+                <option value="changed">Changed</option>
+            </select><br />
+            Question: <br />
+            <textarea id="questionBody" name="question" wrap="hard" maxlength="5000"></textarea><br />
+            <input id="postButton" type="submit" value="Post" />
+        </form>
+    </div>
+</body>
+</html>
