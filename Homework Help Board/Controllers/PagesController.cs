@@ -49,9 +49,28 @@ namespace Homework_Help_Board.Controllers
             if (ModelState.IsValid)
             {
                 //add code to save question to database
+
+                RedirectToAction("QuestionDetail");
             }
 
             return View(question);
+        }
+
+        public IActionResult CreateReply()
+        {
+            return View();
+        }
+
+        public IActionResult CreateReply(Reply reply)
+        {
+            if (ModelState.IsValid)
+            {
+                //add code to save question to database
+
+                RedirectToAction("QuestionDetail");
+            }
+
+            return View(reply);
         }
     }
 }

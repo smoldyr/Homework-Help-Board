@@ -11,16 +11,32 @@
 </head>
 <body>
     <div class="container">
-        <h3 id="questionTitle">Insert Question Title Here</h3> <!--Change to take in question detail-->
-        <div id="mainQuestion"> <!--This section will hold the main question-->
-
+        @model Question
+        <div id="questionDetails">
+            <h3>@Model.Title</h3>
+            <label>@Model.Grade</label>
+            <label>@Model.Subject</label>
+            <div>
+                <p>@Model.Body</p>
+            </div>
         </div>
-        <div id="replies"> <!--This section will hold replies to the question-->
+        
+        <div id="replies">
+            @foreach (var item in Model.Responses)
+            {
+                <p>@item.Body</p>
+            }
+        </div>foreach
 
-        </div>
+        <!-- TO DO: implement post reply section
         <div id="postReply">
-
+            <form asp-action="CreateReply">
+                <label asp-for="Body">Your Reply: </label>
+                <textarea wrap="hard" maxlength="5000" asp-for="Body"></textarea>
+                <input type="submit" value="Post" />
+            </form>
         </div>
+        -->
     </div>
 </body>
 </html>
