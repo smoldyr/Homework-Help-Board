@@ -1,6 +1,8 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
 @{
     
 }
@@ -58,23 +60,24 @@
 <body>
     <div class="container">
         <h2 id="postQuestionHeader">Post a Question</h2>
-        <form method="post">
-            <label for="title">Title:</label>
-            <input id="title" type="text" name="title" /><br />
-            Subject: 
-            <select id="subject"> <!--Change options to be pulled from global list-->
+        @model Question
+        <form asp-action="QuestionDetail">
+            <label asp-for="Title">Title:</label>
+            <input id="title" type="text" asp-for="Title" /><br />
+            <label asp-for="Subject">Subject: </label> 
+            <select id="subject" asp-for="Subject"> <!--Change options to be pulled from global list-->
                 <option value="to">To</option>
                 <option value="be">Be</option>
                 <option value="changed">Changed</option>
             </select><br />
-            Grade: 
-            <select id="grade"> <!--Change options to be pulled from global list-->
+            <label asp-for="Grade">Grade: </label>
+            <select id="grade" asp-for="Grade"> <!--Change options to be pulled from global list-->
                 <option value="to">To</option>
                 <option value="be">Be</option>
                 <option value="changed">Changed</option>
             </select><br />
-            Question: <br />
-            <textarea id="questionBody" name="question" wrap="hard" maxlength="5000"></textarea><br />
+            <label asp-for="Body">Question: </label><br />
+            <textarea id="questionBody" wrap="hard" maxlength="5000" asp-for="Body"></textarea><br />
             <input id="postButton" type="submit" value="Post" />
         </form>
     </div>

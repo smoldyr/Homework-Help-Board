@@ -6,12 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Pages\BrowseQuestion.cshtml" />
     <Content Remove="wwwroot\lib\bootstrap\dist\js\npm.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Pages\BrowseQuestion.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
   </ItemGroup>
 
 </Project>
