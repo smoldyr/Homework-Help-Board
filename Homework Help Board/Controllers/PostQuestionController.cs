@@ -17,6 +17,21 @@ namespace Homework_Help_Board.Controllers
             return View();
         }
 
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        public IActionResult Create(Question question)
+        {
+            if (ModelState.IsValid)
+            {
+                //Add in code to save question to database
+            }
+
+            return View(question);
+        }
+
         //public ViewResult Index() => View(repository.Questions);
 
         //public ViewResult Create() => View();
@@ -27,5 +42,5 @@ namespace Homework_Help_Board.Controllers
             repository.AddQuestion(question);
             return RedirectToAction("Index");
         }*/
-	}
+    }
 }
