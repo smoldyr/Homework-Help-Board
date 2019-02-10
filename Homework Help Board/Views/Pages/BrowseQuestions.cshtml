@@ -1,0 +1,71 @@
+@model User
+
+
+@{ ViewData["Title"] = "BrowseQuestion";
+}
+
+<!DOCTYPE HTML>
+
+<form asp-action="BrowseQuestions">
+    <div class="form-horizontal">
+        <h4>BrowseQuestions </h4>
+
+
+        @*buttons / need foreach loop to pop*@
+        <div class="form-group">
+
+            <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+
+                <button type="submit" class="btn btn-secondary" asp-action="Questions" formmethod="get" >Log of Questions</button>
+
+                <button type="Submit" class="btn btn-secondary" asp-action="Replies">Log of Questions Posted </button>
+
+                <button type="submit" class="btn btn-secondary" asp-action="SubscriptionThreads">Subscription Threads</button>
+
+            </div>
+        </div>
+
+        <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start"> 
+            <div class="d-flex w-100 justify-content-between"> <h5 class="mb-1">Pull Post</h5> 
+            <small>Days Posted</small> </div> <p class="mb-1">Question details. </p> 
+            <small>Need to pull the Grade and Subject.</small> </a> <a href="#" 
+                                                                       class="list-group-item list-group-item-action flex-column align-items-start"> 
+            <div class="d-flex w-100 justify-content-between"> <h5 class="mb-1">PostTitle</h5> 
+            <small class="text-muted">Days posted </small> </div> <p class="mb-1">Question Details</p>
+            <small class="text-muted">Pull Grade and Subject  </small> </a> <a href="#"
+                                                                               class="list-group-item list-group-item-action flex-column align-items-start"> 
+            <div class="d-flex w-100 justify-content-between"> <h5 class="mb-1">Post Title </h5>
+            <small class="text-muted">Days posted</small> </div> <p class="mb-1">Pull Question Details  </p> 
+            <small class="text-muted">Pull Grade and Subject  </small> </a> </div>
+
+
+
+        @*Listgroup with action*@
+        <div class="form-group">
+
+            <div class="input-group">
+                <div class="input-group-btn">
+
+                    <button type="submit" class="btn btn-secondary dropdown-toggle"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Action
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Close Replies</a>
+                        <a class="dropdown-item" href="#">Open Replies</a>
+                        <a class="dropdown-item" href="#">Subscribed to thread</a>
+                    </div>
+                </div>
+                
+
+
+            </div>
+        </div>
+
+
+     
+
+
+    </div>
+</form>

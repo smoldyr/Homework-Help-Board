@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Homework_Help_Board.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
+
 
 namespace Homework_Help_Board.Controllers
 {
@@ -24,9 +27,10 @@ namespace Homework_Help_Board.Controllers
             return View();
         }
 
-        public IActionResult BrowseQuestion()
+        public IActionResult BrowseQuestions()
         {
-            return View();
+
+            return View("BrowseQuestions"); 
         }
 
         public IActionResult PostQuestion()

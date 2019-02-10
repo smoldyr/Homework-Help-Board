@@ -6,12 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Pages\BrowseQuestion.cshtml" />
+    <Content Remove="Views\Pages\BrowseQuestions.cshtml" />
     <Content Remove="wwwroot\lib\bootstrap\dist\js\npm.js" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Pages\BrowseQuestion.cshtml" />
+    <None Include="Views\Pages\BrowseQuestions.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
