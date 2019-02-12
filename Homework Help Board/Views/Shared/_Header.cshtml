@@ -4,26 +4,39 @@
     #signIn {
         margin-top: 1%;
     }
+
+
 </style>
 
 <html>
 <body>
-    <nav class="container">
+    
+
+    <nav class="container-fluid">
         <div id="signIn" class="navbar-header pull-right">
             <a asp-controller="Pages" asp-action="Login">Sign In</a>
         </div>
-    </nav>
-    <nav class="container">
+        
+        @*Took this out because it was covering my views content*@ 
+    @*</nav>
+    <nav class="container">*@  
+
         <div class="navbar-header navbar-collapse pull-right">
-            <ul class="nav navbar-nav">
-                <li><a asp-controller="Pages" asp-action="HomeFeed">Home</a></li>
-                <li><a>My Homework</a></li>
-                <li><a asp-controller="Pages" asp-action="PostQuestion">Post Question</a></li>
-                <li><a>My Account</a></li>
-                <li><a>About</a></li>
-                <li><a>Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+
+            
+                    <ul class="nav navbar-nav">
+                        <li><a asp-controller="Pages" asp-action="HomeFeed">Home</a></li>
+                        <li><a>My Homework</a></li>
+                        <li><a asp-controller="Pages" asp-action="PostQuestion">Post Question</a></li>
+                        <li><a>My Account</a></li>
+                        <li><a>About</a></li>
+                        <li><a>Contact</a></li>
+                    </ul>
+                </div>
+
+
+            </nav>
+
+
 </body>
 </html>
