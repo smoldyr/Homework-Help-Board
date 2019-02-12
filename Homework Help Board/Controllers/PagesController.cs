@@ -55,11 +55,6 @@ namespace Homework_Help_Board.Controllers
         {
             return View();
         }
-
-        public IActionResult CreateQuestion()
-        {
-            return View();
-        }
         
         public IActionResult CreateQuestion(Question question)
         {
@@ -70,12 +65,7 @@ namespace Homework_Help_Board.Controllers
                 RedirectToAction("QuestionDetail");
             }
 
-            return View(question);
-        }
-
-        public IActionResult CreateReply()
-        {
-            return View();
+            return View("QuestionDetail", question);
         }
 
         public IActionResult CreateReply(Reply reply)
@@ -87,7 +77,7 @@ namespace Homework_Help_Board.Controllers
                 RedirectToAction("QuestionDetail");
             }
 
-            return View(reply);
+            return View("QuestionDetail", reply);
         }
     }
 }
