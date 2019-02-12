@@ -14,7 +14,7 @@ namespace Homework_Help_Board.Controllers
     {
         public IActionResult Login()
         {
-            return View();
+            return View("Login");
         }
 
         public IActionResult HomeFeed(Question question)

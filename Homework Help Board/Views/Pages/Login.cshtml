@@ -1,0 +1,29 @@
+@model User
+
+<!DocType HTML>
+
+<head>
+    <title>Login Page</title>
+</head>
+<body>
+    <div class="container">
+
+        <h2 id="LoginPageHeader">Homework Helper Board | Login </h2>
+        <hr />
+        <form asp-action="Login">
+            <label asp-for="Username">Username:</label>
+            <input id="Username" type="text" asp-for="Username" />
+            <br/>
+            <label asp-for="Password">Password:</label>
+           <input id="Password" type="text" asp-for="Password" />
+            <hr />
+
+            <div class="container">
+           <input id="LoginButton" type="submit" value="Login" />
+            </div>
+        </form>
+
+    <hr />
+
+        <a href="CreateAccount">New to Homework Helper? Create An Account</a></div>
+        </body>
