@@ -1,97 +1,104 @@
+@model Question 
+
+
 <!DOCTYPE HTML>
 
 <form asp-action="BrowseQuestions">
 
-
     <div class="form-horizontal">
        
-
+        <h3>My Homework</h3>
         @*buttons / need foreach loop to populate listgroup *@
 
-        <div class="form-group">
+        <div class="container">
+            <div id="BrowseBtn">
 
-            <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                <div class="form-group">
 
-                <button type="submit" class="btn btn-secondary" asp-action="Questions" Formmethod="Get">Log of Questions</button>
+                    <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
 
-                <button type="Submit" class="btn btn-secondary" asp-action="Replies">Log of Answers Posted </button>
+                        <button type="submit" class="btn btn-secondary" asp-action="Questions" Formmethod="Get">Log of Questions</button>
 
-                <button type="submit" class="btn btn-secondary" asp-action="SubscriptionThreads">Subscription Threads</button>
+                        <button type="Submit" class="btn btn-secondary" asp-action="Replies">Log of Answers Posted </button>
 
-            </div>
-        </div>
-
-        
-        <div class="list-group">
-            <fieldset>
-               
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start"> 
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Pull Post</h5>
-                <small>Days Posted</small>
-                   
-                </div> <p class="mb-1">Question details. </p>
-                <small>Need to pull the Grade and Subject.</small>
-            </a>
-                <div class="custom-select" style="width:200px;">
-                    <select>
-                        <option value="0">Open Replies</option>
-                        <option value="1">Close Replies</option>
-                        <option value="2">Subscribe to Thread</option>
-                        <option value="3">Unsubscribe to Thread</option>
-                    </select>
-                </div>
-                </fieldset>
-
-            <fieldset>
-                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start"> 
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">PostTitle</h5>
-                    <small class="text-muted">Days posted </small>
-                </div> <p class="mb-1">Question Details</p>
-                <small class="text-muted">Pull Grade and Subject  </small>
-                    </a>
-                <div class="custom-select" style="width:200px;">
-                    <select>
-                        <option value="0">Open Replies</option>
-                        <option value="1">Close Replies</option>
-                        <option value="2">Subscription Thread</option>
-                    </select>
-
-
-                </div>
-                </fieldset>
-            
-            <fieldset>
-                
-            
-                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start"> 
-                    <div class="d-flex w-100 justify-content-between"> 
-                        <h5 class="mb-1">Post Title </h5>
-                        <small class="text-muted">Days posted</small>
-                    </div> <p class="mb-1">Pull Question Details  </p>
-                    <small class="text-muted">Pull Grade and Subject  </small>
-                    </a>
-                    <div class="custom-select" style="width:200px;">
-                        <select>
-                            <option value="0">Open Replies</option>
-                            <option value="1">Close Replies</option>
-                            <option value="2">Subscription Thread</option>
-                        </select>
+                        <button type="submit" class="btn btn-secondary" asp-action="Subscribe Threads">Subscribe Threads</button>
 
                     </div>
-                </fieldset>
-                
+                </div>
             </div>
-
-
-
-               
-
         </div>
 
 
 
-        
+            <div class="container">
+
+                <div id="BrowseQuestions">
+
+                    <div class="list-group">
+
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">@Model.Title</h5>
+
+                                <small class="text-muted">@Model.DateCreated</small>
+                            </div> <p class="mb-1">@Model.Body</p>
+                            <small class="text-muted">@Model.Subject</small>
+                            <small class="text-muted">@Model.Grade</small>
+                        </a>
+                        <div class="custom-select" style="width:200px;">
+                            <select>
+                                <option value="Open">Open Replies</option>
+                                <option value="Close">Close Replies</option>
+                                <option value="Subscribe">Subscribe to Thread</option>
+                                <option value="Unsubscribe">Unsubscribe to Thread</option>
+                            </select>
+                        </div>
+
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">@Model.Title</h5>
+                                <small class="text-muted">@Model.DateCreated </small>
+                            </div> <p class="mb-1">@Model.Body</p>
+                            <small class="text-muted">@Model.Subject</small>
+                        </a>
+                        <div class="custom-select" style="width:200px;">
+                            <select>
+                                <option value="Open">Open Replies</option>
+                                <option value="Close">Close Replies</option>
+                                <option value="Subscribe">Subscribe</option>
+                                <option value="Unsubscribe">Unsubscribe to Thread</option>
+
+                            </select>
+                        </div>
+
+
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">@Model.Title</h5>
+                                <small class="text-muted">@Model.DateCreated</small>
+                            </div> <p class="mb-1">@Model.Body</p>
+                            <small class="text-muted">@Model.Subject</small>
+                            <small class="text-muted">@Model.Grade</small>
+                        </a>
+                        <div class="custom-select" style="width:200px;">
+
+                            <select>
+                                <option value="Open">Open Replies</option>
+                                <option value="Close">Close Replies</option>
+                                <option value="Subscribe">Subscribe</option>
+                                <option value="Unsubscribe">Unsubscribe to Thread</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
 
 </form>

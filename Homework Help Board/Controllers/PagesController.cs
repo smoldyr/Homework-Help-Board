@@ -27,10 +27,17 @@ namespace Homework_Help_Board.Controllers
             return View();
         }
 
-        public IActionResult BrowseQuestions()
+        public IActionResult BrowseQuestions(Question question)
         {
 
-            return View("BrowseQuestions"); 
+            if (ModelState.IsValid)
+            {
+
+                RedirectToAction("BrowseQuestions");
+            }
+
+
+            return View(question); 
         }
 
         public IActionResult PostQuestion()
