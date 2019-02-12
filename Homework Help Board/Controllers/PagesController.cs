@@ -30,7 +30,7 @@ namespace Homework_Help_Board.Controllers
 
         public IActionResult AccountManagement()
         {
-            return View();
+            return View("AccountManagement");
         }
 
         public IActionResult BrowseQuestions(Question question)
