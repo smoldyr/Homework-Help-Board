@@ -17,9 +17,15 @@ namespace Homework_Help_Board.Controllers
             return View();
         }
 
-        public IActionResult HomeFeed()
+        public IActionResult HomeFeed(Question question)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+
+                RedirectToAction("HomeFeed");
+            }
+
+            return View(question);
         }
 
         public IActionResult AccountManagement()

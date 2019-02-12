@@ -1,15 +1,118 @@
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+@model Question 
 
-}
+<!DOCTYPE HTML>
 
-<html>
-<head>
-    <title>Home Feed Page</title>
-</head>
-<body>
-    This is the Home Feed Page.
-</body>
-</html>
+<form asp-action="HomeFeed">
+
+    <div class="form-horizontal">
+
+        <h3>Homework Helper Board | Home</h3>
+        @*buttons / need foreach loop to populate listgroup *@
+
+        <div class="container">
+            <div id="MainFeedBtn">
+
+                <div class="form-group">
+
+                    <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+
+                        <button type="submit" class="btn btn-secondary" asp-action="Questions" Formmethod="Get">Recent Posts</button>
+
+                        <button type="Submit" class="btn btn-secondary" asp-action="Replies">Recent Replies</button>
+
+                        <button type="submit" class="btn btn-secondary" asp-action="Subscribe Threads">Recent Questions</button>
+
+                    </div>
+
+                    <h4>Select Grade and Subject to Filter by:</h4>
+                    <div class="custom-select" style="width:200px;">
+                        <select>
+                            <option value="@Model.Subject">Subject</option>
+                        </select>
+                    </div>
+
+                    <div class="custom-select" style="width:200px;">
+                        <select>
+                            <option value="@Model.Grade">Grade</option>
+
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        @*List group*@
+        <div class="container">
+
+            <div id="BrowseQuestions">
+
+                <div class="list-group">
+
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">@Model.Title</h5>
+
+                            <small class="text-muted">@Model.DateCreated</small>
+                        </div> <p class="mb-1">@Model.Body</p>
+                        <small class="text-muted">@Model.Subject</small>
+                        <small class="text-muted">@Model.Grade</small>
+                    </a>
+                    <div class="custom-select" style="width:200px;">
+                        <select>
+                            <option value="Open">Open Replies</option>
+                            <option value="Close">Close Replies</option>
+                            <option value="Subscribe">Subscribe to Thread</option>
+                            <option value="Unsubscribe">Unsubscribe to Thread</option>
+                        </select>
+                    </div>
+
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">@Model.Title</h5>
+                            <small class="text-muted">@Model.DateCreated </small>
+                        </div> <p class="mb-1">@Model.Body</p>
+                        <small class="text-muted">@Model.Subject</small>
+                    </a>
+                    <div class="custom-select" style="width:200px;">
+                        <select>
+                            <option value="Open">Open Replies</option>
+                            <option value="Close">Close Replies</option>
+                            <option value="Subscribe">Subscribe</option>
+                            <option value="Unsubscribe">Unsubscribe to Thread</option>
+
+                        </select>
+                    </div>
+
+
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">@Model.Title</h5>
+                            <small class="text-muted">@Model.DateCreated</small>
+                        </div> <p class="mb-1">@Model.Body</p>
+                        <small class="text-muted">@Model.Subject</small>
+                        <small class="text-muted">@Model.Grade</small>
+                    </a>
+                    <div class="custom-select" style="width:200px;">
+
+                        <select>
+                            <option value="Open">Open Replies</option>
+                            <option value="Close">Close Replies</option>
+                            <option value="Subscribe">Subscribe</option>
+                            <option value="Unsubscribe">Unsubscribe to Thread</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+</form>
