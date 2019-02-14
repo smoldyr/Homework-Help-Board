@@ -33,8 +33,63 @@ namespace Homework_Help_Board.Controllers
             return View("AccountManagement");
         }
 
-        public IActionResult BrowseQuestions(Question question)
+
+        public IActionResult BrowseQuestions(bool? showquestions, bool? showreplies, bool? showsubscribes)
         {
+            var model = new BrowseQuestionsViewModel();
+
+            model.User = new User
+            {
+                 UserID = 1,
+
+            };
+
+            model.User.Questions = new List<Question>();
+
+            model.User.Questions.Add(new Question
+            {
+                 PostID = 1,
+            });
+
+            model.User.Replies = new List<Reply>();
+
+            model.User.Replies.Add(new Reply
+            {
+                PostID = 2,
+            });
+
+            model.Replies = new List<ReplyViewModel>();
+            foreach(var r in model.User.Replies)
+            {
+                model.Replies.Add(new ReplyViewModel { Reply = r });
+            }
+
+            if(showquestions != null)
+            {
+                if ((bool)showquestions)
+                {
+                    // if user clicked the questions button
+                    model.ShowQuestions = true;
+                }
+            }
+
+            if (showreplies != null)
+            {
+                if ((bool)showreplies)
+                {
+                    // if user clicked the replies button
+                    model.ShowReplies = true;
+                }
+            }
+
+            if (showsubscribes != null)
+            {
+                if ((bool)showsubscribes)
+                {
+                    // if user clicked the subscribes button
+                    model.ShowSubscribes = true;
+                }
+            }
 
             if (ModelState.IsValid)
             {
@@ -43,7 +98,7 @@ namespace Homework_Help_Board.Controllers
             }
 
 
-            return View(question); 
+            return View(model); 
         }
 
         public IActionResult PostQuestion()
@@ -78,6 +133,16 @@ namespace Homework_Help_Board.Controllers
             }
 
             return View("QuestionDetail", reply);
+        }
+
+        [HttpPost]
+        public IActionResult Vote(BrowseQuestionsViewModel model)
+        {
+            var clickedReply = model.Replies.First(r => r.Reply.PostID == model.ClickedReplyID);
+
+            //model.ClickedUpvote
+
+            return PartialView("_UpvotePartialView", clickedReply.Reply);
         }
     }
 }

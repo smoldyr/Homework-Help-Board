@@ -11,7 +11,8 @@ namespace Homework_Help_Board.Models
         public int UserID { get; set; } //from IPost
         public DateTime DateCreated { get; set; } //from IPost
         public string Body { get; set; } //from IPost
-        public int NumVotes { get; set; }
+        public int NumUpVotes { get; set; }
+        public int NumDownvotes { get; set; }
         public int NumFlags { get; set; } //from IPost
     }
 }
