@@ -5,7 +5,6 @@
 <!DOCTYPE HTML>
 
 <form asp-action="BrowseQuestions">
-    <input type="submit" value="Save Changes" />
 
     <div class="form-horizontal">
 
@@ -20,6 +19,7 @@
                     <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
                         @*ask about the formethod*@
                         <a class="btn btn-secondary" asp-action="BrowseQuestions" asp-route-showquestions="true">Log of Questions</a>
+
                         @*<button type="submit" class="btn btn-secondary" asp-action="Questions" Formmethod="Get">Log of Questions</button>*@
 
                         <button input id="repliesButton" type="Submit" class="btn btn-secondary" asp-action="Replies">Log of Answers Posted </button>
@@ -77,6 +77,9 @@
                                         <option value="false">Unsubscribe to Thread</option>
                                     </select>
                                 </div>
+
+                                <input type="submit" value="Save Changes" />
+
                             }
                         }
 
