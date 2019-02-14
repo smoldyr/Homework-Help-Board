@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Homework_Help_Board.Models
+
+{
+    public class ViewModel
+{
+
+        //Add the list here 
+
+
+}
+}
