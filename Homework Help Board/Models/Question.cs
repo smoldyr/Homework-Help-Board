@@ -15,7 +15,7 @@ namespace Homework_Help_Board.Models
         public string Subject { get; set; }
         public int Grade { get; set; }
         public string Body { get; set; } //from IPost
-        public IList<Reply> Responses { get; set; }
+        public IList<Reply> Replies { get; set; }
         public int NumFlags { get; set; } //from IPost
     }
 }

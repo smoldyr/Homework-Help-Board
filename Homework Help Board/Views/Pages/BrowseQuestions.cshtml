@@ -17,28 +17,26 @@
                 <div class="form-group">
 
                     <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                        @*ask about the formethod*@
                         <a class="btn btn-secondary" asp-action="BrowseQuestions" asp-route-showquestions="true">Log of Questions</a>
 
-                        @*<button type="submit" class="btn btn-secondary" asp-action="Questions" Formmethod="Get">Log of Questions</button>*@
+                        <a class="btn btn-secondary" asp-action="BrowseReplies" asp-route-ShowReplies="true">Log of Replies</a>
+                        <a class="btn btn-secondary" asp-action="showSub" asp-route-ShowSubscribes="true">Subscibe Threads</a>
 
-                        <button input id="repliesButton" type="Submit" class="btn btn-secondary" asp-action="Replies">Log of Answers Posted </button>
+                        @* Need to add in Flags and Filter and make jquery for both of those buttons 
 
-                        <button input id ="subButton" type="submit" class="btn btn-secondary" asp-action="Subscribe Threads">Subscribe Threads</button>
+                            <h4>Select Grade and Subject to Filter by:  </h4>
+        <div class="custom-select" style="width:200px;">
+            <select>
+                <option value="@Model.Subject">Subject</option>
+            </select>
+        </div>
 
-                        @*<h4>Select Grade and Subject to Filter by:  </h4>
-                        <div class="custom-select" style="width:200px;">
-                            <select>
-                                <option value="@Model.Subject">Subject</option>
-                            </select>
-                        </div>
+        <div class="custom-select" style="width:200px;">
+            <select>
+                <option value="@Model.Grade">Grade</option>
 
-                        <div class="custom-select" style="width:200px;">
-                            <select>
-                                <option value="@Model.Grade">Grade</option>
-
-                            </select>
-                        </div>*@
+            </select>
+        </div>*@
 
                     </div>
                 </div>
@@ -78,8 +76,10 @@
                                     </select>
                                 </div>
 
+
                                 <input type="submit" value="Save Changes" />
 
+                               
                             }
                         }
 
@@ -110,43 +110,7 @@
 
 
 
-                            @*<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">@Model.Title</h5>
-                    <small class="text-muted">@Model.DateCreated </small>
-                </div> <p class="mb-1">@Model.Body</p>
-                <small class="text-muted">@Model.Subject</small>
-            </a>
-            <div class="custom-select" style="width:200px;">
-                <select>
-                    <option value="Open">Open Replies</option>
-                    <option value="Close">Close Replies</option>
-                    <option value="Subscribe">Subscribe</option>
-                    <option value="Unsubscribe">Unsubscribe to Thread</option>
-
-                </select>
-            </div>
-
-
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">@Model.Title</h5>
-                    <small class="text-muted">@Model.DateCreated</small>
-                </div> <p class="mb-1">@Model.Body</p>
-                <small class="text-muted">@Model.Subject</small>
-                <small class="text-muted">@Model.Grade</small>
-            </a>
-            <div class="custom-select" style="width:200px;">
-
-                <select>
-                    <option value="Open">Open Replies</option>
-                    <option value="Close">Close Replies</option>
-                    <option value="Subscribe">Subscribe</option>
-                    <option value="Unsubscribe">Unsubscribe to Thread</option>
-
-                </select>
-
-            </div>*@
+                          
 
                         </div>
 
@@ -156,10 +120,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
 
     </div>
 </form>

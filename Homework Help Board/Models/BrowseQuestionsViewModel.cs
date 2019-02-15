@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace Homework_Help_Board.Models
 
 {
     public class BrowseQuestionsViewModel
     {
 
-        //Add the list here 
         public User User { get; set; }
         public List<ReplyViewModel> Replies { get; set; }
         public List<QuestionViewModel> Questions { get; set; }
@@ -18,8 +18,10 @@ namespace Homework_Help_Board.Models
         public bool ShowSubscribes { get; set; }
         public int ClickedReplyID { get; set; }
         public bool ClickedUpvote { get; set; }
+
     }
 
+   
     public class ReplyViewModel
     {
         public Reply Reply { get; set; }

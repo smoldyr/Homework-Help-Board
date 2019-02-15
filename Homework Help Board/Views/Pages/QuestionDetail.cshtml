@@ -20,15 +20,16 @@
                 <p>@Model.Body</p>
             </div>
         </div>
-        
+
+        @*Was responses and started to throw me an error msg*@
         <div id="replies">
-            @foreach (var item in Model.Responses)
+            @foreach (var item in Model.Replies)
             {
                 <p>@item.Body</p>
             }
         </div>foreach
 
-        
+
         <div id="postReply">
             <form asp-action="CreateReply">
                 <label asp-for="Body">Your Reply: </label>
@@ -36,7 +37,7 @@
                 <input type="submit" value="Post" />
             </form>
         </div>
-        
+
     </div>
 </body>
 </html>

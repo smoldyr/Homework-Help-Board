@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 
-
 namespace Homework_Help_Board.Controllers
 {
     public class PagesController : Controller
@@ -17,16 +16,93 @@ namespace Homework_Help_Board.Controllers
             return View("Login");
         }
 
-        public IActionResult HomeFeed(Question question)
+        public IActionResult HomeFeed (bool? recentQA, bool? recentreplies /* bool? recentpost*/)
         {
-            if (ModelState.IsValid)
-            {
+            var model = new HomeFeedVM();
 
-                RedirectToAction("HomeFeed");
+            model.User = new User
+            {
+                UserID = 1,
+
+            };
+
+            model.User.Questions = new List<Question>();
+
+            model.User.Questions.Add(new Question
+            {
+                PostID = 1,
+            });
+
+            model.User.Replies = new List<Reply>();
+
+            model.User.Replies.Add(new Reply
+            {
+                PostID = 2,
+            });
+
+            
+
+            model.Replies = new List<RecentReplyVM>();
+            foreach (var r in model.User.Replies)
+            {
+                model.Replies.Add(new RecentReplyVM { Reply = r });
             }
 
-            return View(question);
+            model.Questions = new List<RecentQuestionVM>();
+            foreach (var q in model.User.Questions)
+            { model.Questions.Add(new RecentQuestionVM { Question = q });
+            }
+
+           
+            //model.PostID = new List<RecentPostVM>();
+            //foreach (var q in model.PostID)
+            //{
+            //    model.Questions.Add(new RecentPostVM { post = p });
+            //}
+
+
+            if (recentQA != null)
+            {
+                if ((bool)recentQA)
+                {
+                    // if user clicked the recent QA button
+                    model.RecentQuestions = true;
+                }
+            }
+
+            if (recentreplies != null)
+            {
+                if ((bool)recentreplies)
+                {
+                    // if user clicked the recent replies button
+                    model.RecentReplies = true;
+                }
+            }
+
+            //if (recentpost != null)
+            //{
+            //    if ((bool)recentpost)
+            //    {
+
+                    
+            //        // if user clicked the recent posts button
+            //        model.RecentPosts = true;
+
+
+
+
+                    if (ModelState.IsValid)
+                    {
+
+                        RedirectToAction("HomeFeed");
+                    }
+
+                    return View(model);
+
+            //    }
+            //}
         }
+
 
         public IActionResult AccountManagement()
         {
@@ -41,6 +117,7 @@ namespace Homework_Help_Board.Controllers
             model.User = new User
             {
                  UserID = 1,
+                 
 
             };
 
@@ -48,7 +125,8 @@ namespace Homework_Help_Board.Controllers
 
             model.User.Questions.Add(new Question
             {
-                 PostID = 1,
+
+                PostID = 1,
             });
 
             model.User.Replies = new List<Reply>();
@@ -56,6 +134,7 @@ namespace Homework_Help_Board.Controllers
             model.User.Replies.Add(new Reply
             {
                 PostID = 2,
+
             });
 
             model.Replies = new List<ReplyViewModel>();

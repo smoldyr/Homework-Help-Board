@@ -1,4 +1,4 @@
-@model Question 
+@model HomeFeedVM
 
 <!DOCTYPE HTML>
 
@@ -16,27 +16,29 @@
 
                     <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
 
-                        <button type="submit" class="btn btn-secondary" asp-action="Questions" Formmethod="Get">Recent Posts</button>
+                        <a class="btn btn-secondary" asp-action="Recent Post" asp-route-showquestions="true">Recent Posts</a>
 
-                        <button type="Submit" class="btn btn-secondary" asp-action="Replies">Recent Replies</button>
+                        <a class="btn btn-secondary" asp-action="RecentReplies" asp-route-showquestions="true">Recent Replies</a>
 
-                        <button type="submit" class="btn btn-secondary" asp-action="Subscribe Threads">Recent Questions</button>
+                        <a class="btn btn-secondary" asp-action="Recent Questions" asp-route-showquestions="true">Recent Questions</a>
 
                     </div>
 
-                    <h4>Select Grade and Subject to Filter by:</h4>
-                    <div class="custom-select" style="width:200px;">
-                        <select>
-                            <option value="@Model.Subject">Subject</option>
-                        </select>
-                    </div>
+                    @*<h4>Select Grade and Subject to Filter by:  </h4>
+                        <div class="custom-select" style="width:200px;">
+                            <select>
+                                <option value="@Model.Subject">Subject</option>
+                            </select>
+                        </div>
 
-                    <div class="custom-select" style="width:200px;">
-                        <select>
-                            <option value="@Model.Grade">Grade</option>
+                        <div class="custom-select" style="width:200px;">
+                            <select>
+                                <option value="@Model.Grade">Grade</option>
 
-                        </select>
-                    </div>
+                            </select>
+                        </div>*@
+
+
 
                 </div>
             </div>
@@ -44,75 +46,99 @@
 
 
         @*List group*@
-        <div class="container">
 
-            <div id="BrowseQuestions">
+        <div form-group>
+            <div class="container">
 
-                <div class="list-group">
+                <div id="RecentPost">
 
-                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">@Model.Title</h5>
+                    @if (Model.RecentPosts)
+                    {
+                        for (int i = 0; i < Model.Questions.Count; i++)
+                        {
+                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">@Model.Questions[i].Question.Title</h5>
 
-                            <small class="text-muted">@Model.DateCreated</small>
-                        </div> <p class="mb-1">@Model.Body</p>
-                        <small class="text-muted">@Model.Subject</small>
-                        <small class="text-muted">@Model.Grade</small>
-                    </a>
-                    <div class="custom-select" style="width:200px;">
-                        <select>
-                            <option value="Open">Open Replies</option>
-                            <option value="Close">Close Replies</option>
-                            <option value="Subscribe">Subscribe to Thread</option>
-                            <option value="Unsubscribe">Unsubscribe to Thread</option>
-                        </select>
-                    </div>
+                                    <small class="text-muted">@Model.Questions[i].Question.DateCreated</small>
+                                </div> <p class="mb-1">@Model.Questions[i].Question.Body</p>
+                                <small class="text-muted">@Model.Questions[i].Question.Subject</small>
+                                <small class="text-muted">@Model.Questions[i].Question.Grade</small>
+                            </a>
 
-                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">@Model.Title</h5>
-                            <small class="text-muted">@Model.DateCreated </small>
-                        </div> <p class="mb-1">@Model.Body</p>
-                        <small class="text-muted">@Model.Subject</small>
-                    </a>
-                    <div class="custom-select" style="width:200px;">
-                        <select>
-                            <option value="Open">Open Replies</option>
-                            <option value="Close">Close Replies</option>
-                            <option value="Subscribe">Subscribe</option>
-                            <option value="Unsubscribe">Unsubscribe to Thread</option>
+                            <div class="custom-select" style="width:200px;">
+                                <select asp-for="Questions[i].Open">
+                                    <option value="true">Open Replies</option>
+                                    <option value="false">Close Replies</option>
+                                </select>
+                            </div>
 
-                        </select>
-                    </div>
+                            <div class="custom-select" style="width:200px;">
+                                <select asp-for="Questions[i].Subscribe">
+                                    <option value="true">Subscribe to Thread</option>
+                                    <option value="false">Unsubscribe to Thread</option>
+                                </select>
+                            </div>
 
+                            <input type="submit" value="Save Changes" />
 
-                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">@Model.Title</h5>
-                            <small class="text-muted">@Model.DateCreated</small>
-                        </div> <p class="mb-1">@Model.Body</p>
-                        <small class="text-muted">@Model.Subject</small>
-                        <small class="text-muted">@Model.Grade</small>
-                    </a>
-                    <div class="custom-select" style="width:200px;">
+                        }
+                    }
 
-                        <select>
-                            <option value="Open">Open Replies</option>
-                            <option value="Close">Close Replies</option>
-                            <option value="Subscribe">Subscribe</option>
-                            <option value="Unsubscribe">Unsubscribe to Thread</option>
+                    @if (Model.RecentReplies)
+                    {
+                        foreach (var r in Model.Replies)
+                        {
+                            <div>@r.Reply.Body</div>
+                            <div>@r.Reply.DateCreated</div>
+                            <div>@r.Reply.NumDownvotes</div>
+                            <div>@r.Reply.NumUpVotes</div>
+                            <div>@r.Reply.NumFlags</div>
+                            <a id="vote" data-id="@r.Reply.PostID" data-vote="true" class="btn btn-default">Up Vote</a><a data-id="@r.Reply.PostID" id="vote" data-vote="false" class="btn btn-default">Down Vote</a>
+                            <div id="pvVotes">Upvotes: @r.Reply.NumUpVotes; Downvotes: @r.Reply.NumDownvotes</div>
+                        }
+                    }
 
-                        </select>
+                    @*@if (Model.ShowSubscribes)
+                    {
+                        foreach (var s in Model.User.SubscribedThreads)
+                        {
 
-                    </div>
+                        }
+                    }*@
+                    
 
                 </div>
 
-
             </div>
-
-
         </div>
     </div>
 
+    
 </form>
+
+
+
+
+<script>
+    $("#vote").click(function () {
+        var upvote = $(this).data("vote").val();
+        var replyId = $(this).data("id").val();
+
+        var model = $("form").serialize();
+        model.ClickedUpvote = upvote;
+        model.ClickedReplyID = replyId;
+
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("Vote","Pages")',
+            data: model,
+            success: function (result) {
+                $("#pvVotes").html(result);
+            },
+            error: function () {
+                alert("Could not apply vote at this time.");
+            }
+        });
+    });
+</script>
